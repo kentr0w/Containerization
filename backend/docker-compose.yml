@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  flask:
+    image: flask_api
+    ports:
+      - 5001:5000
+    depends_on:
+      - db
+    # links:
+    #   - db
+    networks:
+      - djangonetwork
+  db:
+    image: my-postgres-image
+    hostname: postgresql
+    ports:
+      - "5432:5432"
+    networks:
+      - djangonetwork
+
+networks:
+      djangonetwork:
+          driver: bridge
