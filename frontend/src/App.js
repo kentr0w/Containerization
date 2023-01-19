@@ -21,17 +21,17 @@ function App() {
 		</div> */}
 
 		<h1>Add Your Own Business Card To The List!</h1>
-		<form action="localhost:5000/users/" method="POST">
+		<form action="http://localhost:5000/users/" method="POST">
 		<label for="firstname">Firstname:</label><br/>
-		<input type="text"/><br/>
+		<input name="firstname" type="text"/><br/>
 		<label for="company">Company:</label><br/>
-		<input type="text"/><br/>
+		<input name="lastname" type="text"/><br/>
 		<label for="jobtitle">Job title:</label><br/>
-		<input type="text"/><br/>
+		<input name="job_title" type="text"/><br/>
 		<label for="email">Email:</label><br/>
-		<input type="text"/><br/>
-		<label for="phone">Phone number:</label><br/>
-		<input type="text"/><br/>
+		<input name="email" type="text"/><br/>
+		<label for="description">Description:</label><br/>
+		<input name="description" type="text"/><br/>
 		<input type="submit" value="register"/>
 		</form>
 		</div>

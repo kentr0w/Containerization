@@ -17,9 +17,7 @@ services: # the services aka. the different containers
     image: react-client
     build: ./frontend
     ports:
-      - "3000:3000"
-    expose:
-      - 3000 
+      - "3000:80"
 
   db: # the service for the database
     container_name: db # custom name for the container

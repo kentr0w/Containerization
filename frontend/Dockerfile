@@ -34,11 +34,10 @@ FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 
 # copy custom nginx configuration file
-#RUN rm /etc/nginx/conf.d/default.conf
-#COPY default.conf /etc/nginx/conf.d
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # port to listen to at runtime
-EXPOSE 3000
+EXPOSE 80
 
 # command to run when the container starts
 CMD ["nginx", "-g", "daemon off;"]
