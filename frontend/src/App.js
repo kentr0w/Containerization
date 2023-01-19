@@ -1,41 +1,44 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import Card from './Cards';
 
-function App() {
+class App extends React.Component {
 
-	return (
-		<div className="App">
-		<h1>List of business cards:</h1>
-		<hr/>
+	constructor(props) {
+		super(props);
+		this.state = {refresh: true}
+		this.afterSubmission = this.afterSubmission.bind(this);
+	}
 
-		{/* <div className="card-container">
-		{data.map((item, index) => (
-		<div className="card" key={index}>
-		<h2>{item.name}</h2>
-		<p>{item.company}</p>
-		<p>{item.jobtitle}</p>
-		<p>{item.email}</p>
-		<p>{item.phone}</p>
-		</div>
-		))}
-		</div> */}
+	afterSubmission(event) {
+		event.preventDefault();
+		this.setState({refresh: true})
+	}
 
-		<h1>Add Your Own Business Card To The List!</h1>
-		<form action="http://localhost:5000/users/" method="POST">
-		<label for="firstname">Firstname:</label><br/>
-		<input name="firstname" type="text"/><br/>
-		<label for="company">Company:</label><br/>
-		<input name="lastname" type="text"/><br/>
-		<label for="jobtitle">Job title:</label><br/>
-		<input name="job_title" type="text"/><br/>
-		<label for="email">Email:</label><br/>
-		<input name="email" type="text"/><br/>
-		<label for="description">Description:</label><br/>
-		<input name="description" type="text"/><br/>
-		<input type="submit" value="register"/>
-		</form>
-		</div>
-		);
+	render() {
+		return (
+			<div className="App">			
+				<iframe name="hiddenFrame" class="hide"></iframe>
+				<h1>Add Your Own Business Card To The List!</h1>
+				<form action="http://localhost:5001/users/" method="POST" target="hiddenFrame"d>
+					<label for="firstname">Firstname:</label><br/>
+					<input name="firstname" type="text"/><br/>
+					<label for="company">Company:</label><br/>
+					<input name="lastname" type="text"/><br/>
+					<label for="jobtitle">Job title:</label><br/>
+					<input name="job_title" type="text"/><br/>
+					<label for="email">Email:</label><br/>
+					<input name="email" type="text"/><br/>
+					<label for="description">Description:</label><br/>
+					<input name="description" type="text"/><br/>
+					<input type="submit" value="register"/>
+				</form>
+				<hr/>
+				<h1>List of previuos cards:</h1>
+				<Card></Card>
+			</div>
+			);
+		}
 	}
 
 export default App;

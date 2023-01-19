@@ -6,7 +6,7 @@ services: # the services aka. the different containers
     image: flask-api # image of the service
     build: ./service # same level as the Dockerfile
     ports:
-      - "5000:5000" # exposed port
+      - "5001:5000" # exposed port
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres # custom url to access the db
     depends_on: # dependencies betweend services

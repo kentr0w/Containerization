@@ -2,7 +2,7 @@ body {
   background: transparent; /* Make it white if you need */
   padding: 0 24px;
   margin: 0;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,3 +13,5 @@ body {
   color: #72a24d;
   text-align:center;
 }
+
+.hide { position:absolute; top:-1px; left:-1px; width:1px; height:1px; }
