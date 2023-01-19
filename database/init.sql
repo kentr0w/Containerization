@@ -1,3 +1,0 @@
--- CREATE USER qweqwe;
--- CREATE DATABASE flask_db;
--- GRANT ALL PRIVILEGES ON DATABASE flask_db TO qweqwe;
