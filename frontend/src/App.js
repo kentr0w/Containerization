@@ -4,17 +4,6 @@ import Card from './Cards';
 
 class App extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {refresh: true}
-		this.afterSubmission = this.afterSubmission.bind(this);
-	}
-
-	afterSubmission(event) {
-		event.preventDefault();
-		this.setState({refresh: true})
-	}
-
 	render() {
 		return (
 			<div className="App">			
