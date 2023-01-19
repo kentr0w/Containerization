@@ -1,0 +1,7 @@
+Flask==2.1.1
+Flask_SQLAlchemy==2.5.1
+flask_wtf==1.0.1
+SQLAlchemy==1.4.35
+validators==0.18.2
+WTForms==3.0.1
+psycopg2-binary==2.9.5

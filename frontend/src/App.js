@@ -1,24 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 function App() {
-	const [data, setData] = useState([]);
-
-	useEffect(() => {
-	axios.get('http://localhost:8080/')
-	.then(res => {
-	setData(res.data);
-	})
-	}, [])
 
 	return (
 		<div className="App">
 		<h1>List of business cards:</h1>
 		<hr/>
 
-		<div className="card-container">
+		{/* <div className="card-container">
 		{data.map((item, index) => (
 		<div className="card" key={index}>
 		<h2>{item.name}</h2>
@@ -28,10 +18,10 @@ function App() {
 		<p>{item.phone}</p>
 		</div>
 		))}
-		</div>
+		</div> */}
 
 		<h1>Add Your Own Business Card To The List!</h1>
-		<form action="http://localhost:8080/" method="POST">
+		<form action="localhost:5000/users/" method="POST">
 		<label for="firstname">Firstname:</label><br/>
 		<input type="text"/><br/>
 		<label for="company">Company:</label><br/>
