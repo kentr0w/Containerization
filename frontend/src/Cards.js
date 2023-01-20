@@ -17,7 +17,7 @@ function Cards() {
                 <Card key = {index} items = {it} />
                 <hr/>
             </div>
-        )}
+        ).reverse()}
       </div>
     );
 }

@@ -9,12 +9,12 @@ class App extends React.Component {
 			<div className="App">			
 				<iframe name="hiddenFrame" class="hide"></iframe>
 				<h1>Add Your Own Business Card To The List!</h1>
-				<form action="http://localhost:5001/users/" method="POST" target="hiddenFrame"d>
-					<label for="firstname">Firstname:</label><br/>
+				<form action="http://localhost:5001/users/" method="POST" target="hiddenFrame" onsubmit="setTimeout(function () { window.location.reload(); }, 500)">
+					<label for="firstname">Full Name:</label><br/>
 					<input name="firstname" type="text"/><br/>
 					<label for="company">Company:</label><br/>
 					<input name="lastname" type="text"/><br/>
-					<label for="jobtitle">Job title:</label><br/>
+					<label for="jobtitle">Job Title:</label><br/>
 					<input name="job_title" type="text"/><br/>
 					<label for="email">Email:</label><br/>
 					<input name="email" type="text"/><br/>
@@ -23,7 +23,7 @@ class App extends React.Component {
 					<input type="submit" value="register"/>
 				</form>
 				<hr/>
-				<h1>List of previuos cards:</h1>
+				<h1>List Of Previous Business Cards:</h1>
 				<Card></Card>
 			</div>
 			);

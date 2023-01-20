@@ -10,7 +10,7 @@ class Card extends React.Component {
         return(
             <div>
                 <div>
-                    <p> First name: {this.props.items.firstname}</p>
+                    <p> Full name: {this.props.items.firstname}</p>
                 </div>
                 <div>
                     <p> Last name: {this.props.items.lastname} </p>
