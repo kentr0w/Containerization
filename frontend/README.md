@@ -5,6 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+### `export LD_LIBRARY_PATH=/usr/local/lib`
+to link the libaries needed.
 
 ### `npm start`
 

@@ -12,6 +12,7 @@ FROM node:18-alpine as build
 # it will be used as the default location by the subsequent command
 WORKDIR /app
 
+
 # set the PATH environment variable
 ENV PATH /app/node_modules/.bin:$PATH
 

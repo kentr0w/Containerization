@@ -1,4 +1,4 @@
-version: "3.9" # version of the current yaml file
+version: "3.3" # version of the current yaml file compatible upto version 3.3
 
 services: # the services aka. the different containers
   flask-api: # the service for the python app
