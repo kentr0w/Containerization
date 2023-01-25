@@ -24,7 +24,7 @@ spec:
           ports:
             - containerPort: 5000
           env:
-            - name: POSTGRES_PA00
+            - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: db-secret
