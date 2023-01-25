@@ -19,12 +19,12 @@ spec:
     spec:
       containers:
         - name: flaskapi
-          image: flask-api
-          imagePullPolicy: Never
+          image: zelyior/flask-api
+          imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 5001
+            - containerPort: 5000
           env:
-            - name: POSTGRES_PASSWORD
+            - name: POSTGRES_PA00
               valueFrom:
                 secretKeyRef:
                   name: db-secret
