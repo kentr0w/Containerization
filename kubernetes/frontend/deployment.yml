@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: react-app
-        image: react-app
-        imagePullPolicy: Never
+        image: zelyior/react-app:cloud
+        imagePullPolicy: IfNotPresent
         #ports:
         #- containerPort: 80
