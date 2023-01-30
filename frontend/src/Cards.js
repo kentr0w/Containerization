@@ -5,7 +5,7 @@ function Cards() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-      fetch('http://flaskapi:5001/users/')
+      fetch('http://192.168.49.2:31001/users/')
         .then(res => res.json())
         .then(data => setItems(data.keys));
     }, []);

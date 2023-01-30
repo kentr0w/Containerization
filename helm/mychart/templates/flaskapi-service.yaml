@@ -1,0 +1,16 @@
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: {{ .Release.Name }}-flaskapi
+
+spec:
+  type: {{ .Values.flaskapiservice.type }}
+  ports:
+    - port: {{ .Values.flaskapiservice.port }}
+      protocol: TCP
+      targetPort: {{ .Values.flaskapiservice.targetPort }}
+      nodePort: {{ .Values.flaskapiservice.NodePort }}
+  selector:
+    app: {{ .Release.Name }}-flaskapi

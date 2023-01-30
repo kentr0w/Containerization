@@ -5,8 +5,9 @@ kind: PersistentVolume
 metadata:
   name: pv-volume
   labels:
+    type: local
     app: postgres
-    
+
 spec:
   storageClassName: manual
   capacity:
@@ -15,4 +16,4 @@ spec:
     - ReadWriteMany
   # persistantVolumeReclaimPolicy: Retain
   hostPath:
-    path: "/var/lib/data"                
+    path: "/var/lib/data"

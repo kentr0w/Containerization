@@ -1,0 +1,16 @@
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: {{ .Release.Name }}-postgres
+  labels:
+    app: {{ .Release.Name }}-postgres
+
+spec:
+  type: {{ .Values.dbservice.type }}
+  ports:
+    - port: {{ .Values.dbservice.port }}
+      protocol: {{ .Values.dbservice.protocol }}
+  selector:
+    app: {{ .Release.Name }}-postgres

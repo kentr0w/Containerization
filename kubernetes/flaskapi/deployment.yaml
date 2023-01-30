@@ -19,8 +19,8 @@ spec:
     spec:
       containers:
         - name: flaskapi
-          image: zelyior/flask-api
-          imagePullPolicy: IfNotPresent
+          image: flask-api
+          imagePullPolicy: Never
           ports:
             - containerPort: 5000
           env:
