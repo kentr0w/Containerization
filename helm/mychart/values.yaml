@@ -6,9 +6,9 @@ flaskapiservice:
 
 flaskapideployment:
   replicas: 3
-  image: flask-api
+  image: zelyior/flask-api:please
   containerPort: 5000
-  imagePullPolicy: Never
+  imagePullPolicy: IfNotPresent
 
 frontendservice:
   port: 80
@@ -18,9 +18,9 @@ frontendservice:
 
 frontenddeployment:
   replicas: 2
-  image: react-app
+  image: zelyior/react-app:please
   containerPort: 80
-  imagePullPolicy: Never
+  imagePullPolicy: IfNotPresent
 
 db:
   dbname: postgres
