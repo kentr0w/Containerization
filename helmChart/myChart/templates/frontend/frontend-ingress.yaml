@@ -12,7 +12,7 @@ spec:
   tls:
     - hosts:
         - shareyourcard.cloud
-      secretName: frontend-tls-secret
+      secretName: frontend-letsencrypt-secret
   rules:
     - host: shareyourcard.cloud
       http:

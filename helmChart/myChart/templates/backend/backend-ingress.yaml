@@ -10,7 +10,7 @@ spec:
   tls:
     - hosts:
         - api.shareyourcard.cloud
-      secretName: backend-tls-secret
+      secretName: backend-letsencrypt-secret
   rules:
     - host: api.shareyourcard.cloud
       http:
