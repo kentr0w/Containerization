@@ -3,15 +3,13 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 
 metadata:
-  name: backend-letsencrypt
-  namespace: backend
-
+  name: backend-letsencrypt-secret
 spec: 
   acme: 
     server: https://acme-v02.api.letsencrypt.org/directory 
     email: zgkhhf2yhq@privaterelay.appleid.com 
     privateKeySecretRef: 
-      name: backend-letsencrypt 
+      name: backend-letsencrypt-secret
     solvers: 
     - http01: 
         ingress: 
