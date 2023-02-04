@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: {{ .Release.Name }}-flaskapi
+  namespace: backend
+  labels:
+    app: {{ .Release.Name }}-flaskapi
+
+spec:
+  replicas: {{ .Values.flaskapideployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-flaskapi
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-flaskapi
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-flaskapi
+          image: {{ .Values.flaskapideployment.image }}
+          imagePullPolicy: {{ .Values.flaskapideployment.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.flaskapiservice.port }}
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-postgres-secret
+                  key: postgres-password
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}-postgres-config
+                  key: postgres-user
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}-postgres-config
+                  key: postgres-name
+            - name: POSTGRES_HOSTNAME
+              value: "{{ .Release.Name }}-postgres"
+            - name: POSTGRES_PORT
+              value: "{{ .Values.postgresservice.port }}"

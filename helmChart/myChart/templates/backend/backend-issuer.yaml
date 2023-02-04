@@ -1,0 +1,10 @@
+apiVersion: cert-manager.io/v1
+
+kind: Issuer
+
+metadata:
+  name: backend-issuer
+  namespace: backend
+
+spec:
+  selfSigned: {}

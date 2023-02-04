@@ -1,0 +1,11 @@
+apiVersion: v1
+
+kind: ConfigMap
+
+metadata:
+  name: {{ .Release.Name }}-postgres-config
+  namespace: backend
+
+data:
+  postgres-name: {{ .Values.postgres.postgresname }}
+  postgres-user:  {{ .Values.postgres.postgresuser }}

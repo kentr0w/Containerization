@@ -5,7 +5,7 @@ function Cards() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-      fetch('http://192.168.49.2:31001/users/')
+      fetch('https://api.shareyourcard.cloud/users/')
         .then(res => res.json())
         .then(data => setItems(data.keys));
     }, []);

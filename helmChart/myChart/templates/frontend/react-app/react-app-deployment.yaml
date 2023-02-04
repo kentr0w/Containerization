@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: {{ .Release.Name }}-react-app
+  namespace: frontend
+  labels:
+    app: {{ .Release.Name }}-react-app
+
+spec:
+  replicas: {{ .Values.frontenddeployment.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-react-app
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-react-app
+          image: {{ .Values.frontenddeployment.image }}
+          imagePullPolicy: {{ .Values.frontenddeployment.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.frontenddeployment.containerPort }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-react-app

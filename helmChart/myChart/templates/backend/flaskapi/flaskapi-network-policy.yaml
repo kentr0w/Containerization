@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+
+kind: NetworkPolicy
+
+metadata:
+  name: {{ .Release.Name }}-flaskapi-network-policy
+  namespace: backend
+
+spec:
+  podSelector:
+    matchLabels:
+      app: {{ .Release.Name }}-flaskapi
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+#    - from:
+#      - namespaceSelector:
+#          matchLabels:
+#            name: frontend
+#        podSelector:
+#          matchLabels:
+#            app: {{ .Release.Name }}-react-app
+#      ports:
+#        - port: 5000
+#          protocol: TCP
+    - from: # because of how we did the front end :/
+      ports:
+        - port: {{ .Values.flaskapiservice.port }}
+          protocol: {{ .Values.flaskapiservice.protocol }}
+  egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            app: {{ .Release.Name }}-postgres
+      ports:
+        - port: {{ .Values.postgresservice.port }}
+          protocol: {{ .Values.postgresservice.protocol }}

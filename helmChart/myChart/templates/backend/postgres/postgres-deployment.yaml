@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: {{ .Release.Name }}-postgres
+  namespace: backend
+  labels:
+    app: {{ .Release.Name }}-postgres
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-postgres
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-postgres
+    spec:
+      containers:
+      - name: {{ .Release.Name }}-postgres
+        image: postgres:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-postgres-secret
+              key: postgres-password
+        - name: POSTGRES_USER
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Release.Name }}-postgres-config
+              key: postgres-user
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Release.Name }}-postgres-config
+              key: postgres-name
+        ports:
+        - containerPort: {{ .Values.postgresservice.port }}
+        volumeMounts:
+        - name: pv-storage
+          mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: pv-storage
+          persistentVolumeClaim:
+            claimName: pv-claim

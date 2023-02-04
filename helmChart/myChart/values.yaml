@@ -1,0 +1,34 @@
+flaskapiservice:
+  port: 5000
+  protocol: TCP
+  targetPort: 5000
+  type: NodePort
+  NodePort: 31001
+
+flaskapideployment:
+  replicas: 3
+  image: flask-api
+  containerPort: 5000
+  imagePullPolicy: Never
+
+frontendservice:
+  port: 80
+  protocol: TCP
+  targetPort: 80
+  type: NodePort
+  nodePort: 31000
+
+frontenddeployment:
+  replicas: 3
+  image: react-app
+  containerPort: 80
+  imagePullPolicy: Never
+
+postgres:
+  postgresname: postgres
+  postgresuser: postgres
+
+postgresservice:
+  type: ClusterIP
+  port: 5432
+  protocol: TCP

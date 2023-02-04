@@ -9,7 +9,7 @@ class App extends React.Component {
 			<div className="App">			
 				<iframe name="hiddenFrame" class="hide"></iframe>
 				<h1>Add Your Own Business Card To The List!</h1>
-				<form name="form" action="http://192.168.49.2:31001/users/" method="POST" target="hiddenFrame" onsubmit="setTimeout(function () { window.location.reload(); }, 500)">
+				<form name="form" action="https://api.shareyourcard.cloud/users/" method="POST" target="hiddenFrame" onsubmit="setTimeout(function () { window.location.reload(); }, 500)">
 					<label for="firstname">Full Name:</label><br/>
 					<input name="firstname" type="text"/><br/>
 					<label for="company">Company:</label><br/>
