@@ -3,11 +3,13 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: frontend-letsencrypt-issuer
-  namespace: frontend
 spec:
   acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
     email: zgkhhf2yhq@privaterelay.appleid.com
     privateKeySecretRef:
       name: frontend-letsencrypt-secret
-   
+    solvers:
+    - http01:
+        ingress:
+          class: nginx

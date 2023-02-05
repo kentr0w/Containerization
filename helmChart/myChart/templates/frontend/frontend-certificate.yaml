@@ -9,9 +9,9 @@ metadata:
 spec:
   isCA: true
   commonName: shareyourcard.cloud
-  secretName: frontend-letsencrypt-secret
   dnsNames:
   - shareyourcard.cloud
+  secretName: frontend-letsencrypt-secret
   privateKey:
     algorithm: ECDSA
     size: 256
