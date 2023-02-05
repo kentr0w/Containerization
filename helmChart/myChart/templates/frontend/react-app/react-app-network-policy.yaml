@@ -19,6 +19,7 @@ spec:
         - port: {{ .Values.frontendservice.port }}
           protocol: {{ .Values.frontendservice.protocol }}
   egress:
+    - {}
     - to:
       ports:
         - port: 80
@@ -30,3 +31,6 @@ spec:
         podSelector:
           matchLabels:
             app: {{ .Release.Name }}-flaskapi
+      ports:
+        - port: 5000
+          protocol: TCP
