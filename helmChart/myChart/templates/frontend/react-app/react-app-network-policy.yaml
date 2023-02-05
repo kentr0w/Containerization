@@ -19,7 +19,6 @@ spec:
         - port: {{ .Values.frontendservice.port }}
           protocol: {{ .Values.frontendservice.protocol }}
   egress:
-    - {}
     - to:
       ports:
         - port: 80
