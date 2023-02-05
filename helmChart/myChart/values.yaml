@@ -20,7 +20,7 @@ frontendservice:
 
 frontenddeployment:
   replicas: 3
-  image: zelyior/react-app:gke
+  image: zelyior/react-app:gke-last
   containerPort: 80
   imagePullPolicy: IfNotPresent
 

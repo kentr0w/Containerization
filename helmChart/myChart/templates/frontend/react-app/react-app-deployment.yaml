@@ -10,10 +10,15 @@ metadata:
 
 spec:
   replicas: {{ .Values.frontenddeployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-react-app
+      version: v2.0.0
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-react-app
+        version: v2.0.0
     spec:
       containers:
         - name: {{ .Release.Name }}-react-app
@@ -21,6 +26,3 @@ spec:
           imagePullPolicy: {{ .Values.frontenddeployment.imagePullPolicy }}
           ports:
             - containerPort: {{ .Values.frontenddeployment.containerPort }}
-  selector:
-    matchLabels:
-      app: {{ .Release.Name }}-react-app

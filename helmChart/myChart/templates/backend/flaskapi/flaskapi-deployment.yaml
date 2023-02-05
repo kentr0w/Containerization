@@ -13,10 +13,12 @@ spec:
   selector:
     matchLabels:
       app: {{ .Release.Name }}-flaskapi
+      version: v1.0.0
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-flaskapi
+        version: v1.0.0
     spec:
       containers:
         - name: {{ .Release.Name }}-flaskapi
@@ -44,3 +46,5 @@ spec:
               value: "{{ .Release.Name }}-postgres"
             - name: POSTGRES_PORT
               value: "{{ .Values.postgresservice.port }}"
+            - name: VERSION
+              value: v1.0.0
