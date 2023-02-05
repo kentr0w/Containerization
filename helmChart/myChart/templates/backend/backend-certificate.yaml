@@ -3,19 +3,17 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 
 metadata:
-  name: backend-certificate
+  name: {{ .Release.Name }}-backend-certificate
   namespace: backend
 
 spec:
   isCA: true
   commonName: api.shareyourcard.cloud
-  dnsNames:
-  - api.shareyourcard.cloud
-  secretName: backend-letsencrypt-secret
+  secretName: {{ .Release.Name }}-backend-tls-secret
   privateKey:
     algorithm: ECDSA
     size: 256
   issuerRef:
-    name: backend-issuer
+    name: {{ .Release.Name }}-backend-issuer
     kind: Issuer
     group: cert-manager.io

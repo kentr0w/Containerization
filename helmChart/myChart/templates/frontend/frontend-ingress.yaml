@@ -5,14 +5,14 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
-  name: frontend-ingress
+  name: {{ .Release.Name }}-frontend-ingress
   namespace: frontend
 
 spec:
   tls:
     - hosts:
         - shareyourcard.cloud
-      secretName: frontend-letsencrypt-secret
+      secretName: {{ .Release.Name }}-frontend-tls-secret
   rules:
     - host: shareyourcard.cloud
       http:

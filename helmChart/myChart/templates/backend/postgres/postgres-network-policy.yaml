@@ -22,4 +22,10 @@ spec:
         - port: {{ .Values.postgresservice.port }}
           protocol: {{ .Values.postgresservice.protocol }}
   egress:
-    - {}
+    - to:
+      - podSelector:
+          matchLabels:
+            app: {{ .Release.Name }}-flaskapi
+      ports:
+        - port: {{ .Values.flaskapiservice.port }}
+          protocol: {{ .Values.flaskapiservice.protocol }}

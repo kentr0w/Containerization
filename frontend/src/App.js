@@ -20,7 +20,7 @@ class App extends React.Component {
 					<input name="email" type="text"/><br/>
 					<label for="description">Description:</label><br/>
 					<input name="description" type="text"/><br/>
-					<input type="submit" value="register" onclick="javascript:setTimeout(() => location.reload(), 300);" />
+					<input type="submit" value="register"/>
 				</form>
 				<hr/>
 				<h1>List Of Previous Business Cards:</h1>
